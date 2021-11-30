@@ -1,0 +1,19 @@
+.nav{
+    
+    position:fixed;
+    background-color: aquamarine !important;
+    border-style:groove;
+    border-radius: 20px;
+    border-color: darkorange;
+    height: 70px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    
+    
+}
+.mt_my{
+    margin-top: 50px !important;
+    border-radius: 20px;
+    border-color: darkorange;
+}
