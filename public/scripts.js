@@ -9,16 +9,34 @@ function getTipos(){
     fetch('http://localhost:3000/tipos')
     .then(res=> res.json())
     .then(data=> {
-        tipo.innerHTML+= '<option selected>Open this select menu</option>'
+        tipo.innerHTML += `<option selected>Escolha um tipo.../option>`
         for(i in data){
             let op = 
-            `<option value"${data[i].idtipo}">${data[i].disignacao}</option>`
+            `<option value"${data[i].idtipo}">${data[i].designacao}</option>`
             tipo.innerHTML += op
         }
     })
     .catch((err)=>{
         alert('Errro no pedido...')
     })
+
+}
+
+function adicionar(){
+    let nome = document.getElementById('nome')
+    
+    let rua = document.getElementById('rua')
+
+    let numero = document.getElementById('numero')
+
+    let email = document.getElementById('email')
+
+    let tel = document.getElementById('tel')
+
+    let nascimento = document.getElementById('nascimento')
+
+    let tipo = document.getElementById('tipo')
+    
 
 }
 
