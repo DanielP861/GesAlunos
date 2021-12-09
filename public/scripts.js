@@ -1,3 +1,4 @@
+const { text } = require("express")
 
 function initForm(){
     getNavbar()
@@ -23,20 +24,60 @@ function getTipos(){
 }
 
 function adicionar(){
-    let nome = document.getElementById('nome')
+    let nome = document.getElementById('nome').value
     
-    let rua = document.getElementById('rua')
+    let rua = document.getElementById('rua').value
 
-    let numero = document.getElementById('numero')
+    let numero = document.getElementById('numero').value
 
-    let email = document.getElementById('email')
+    let email = document.getElementById('email').value
 
-    let tel = document.getElementById('tel')
+    let tel = document.getElementById('tel').value
 
-    let nascimento = document.getElementById('nascimento')
+    let nascimento = document.getElementById('nascimento').value
 
-    let tipo = document.getElementById('tipo')
+    let tipo = document.getElementById('tipo').value
     
+    let objeto = {
+
+        nomeutilizador: nome,
+
+        moradorua:rua,
+
+        moradanumero: numero,
+
+        datanacimento: nascimento,
+
+        telemovel: tel,
+
+        email: email,
+
+        idtipo: tipo
+
+    }
+
+    let objetoJSON = JSON.stringify(objeto)
+    
+
+    const options ={
+        method: 'POST',
+        headers:{
+            'Content-type': 'application/json'
+        },
+
+        body : objetoJSON
+
+    }
+    
+    fetch('http://localhost.3000/inserirAlunos',options)
+        .then(res => res.text())
+        .then(text =>{
+            alert(text)
+    }) 
+
+    .catch((err)=>{
+            alert('Ocoreu um erro...')
+    })
 
 }
 

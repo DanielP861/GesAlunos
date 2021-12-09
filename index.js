@@ -24,6 +24,11 @@ app.get('/tipos',(req, res)=>{
   })
 })
 
+app.post('/inserirAlunos',(req,res)=>{
+  console.log(res.body)
+  res.send('cheguei bem e de saude... ')
+})
+
 const port = 3000
 
 app.listen(port, () => {
