@@ -10,7 +10,7 @@ function getTipos(){
     fetch('http://localhost:3000/tipos')
     .then(res=> res.json())
     .then(data=> {
-        tipo.innerHTML += `<option selected>Escolha um tipo.../option>`
+        tipo.innerHTML += `<option selected>Escolha um tipo...</option>`
         for(i in data){
             let op = 
             `<option value"${data[i].idtipo}">${data[i].designacao}</option>`
@@ -18,7 +18,7 @@ function getTipos(){
         }
     })
     .catch((err)=>{
-        alert('Errro no pedido...')
+        alert('Erro no pedido...')
     })
 
 }
@@ -69,7 +69,7 @@ function adicionar(){
 
     }
     
-    fetch('http://localhost.3000/inserirAlunos',options)
+    fetch('http://localhost:3000/inserirAlunos',options)
         .then(res => res.text())
         .then(text =>{
             alert(text)

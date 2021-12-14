@@ -1,33 +1,21 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const connection = require('./dbconnection')
+
  
 app.use(express.static('./public'))
 
-app.get('/',  (req, res) => {
-  res.sendFile(path.join(__dirname,'./public/index.html'))
-})
+app.use(express.urlencoded({extended: true}));
+app.use(express.json({extended: false}));
 
-app.get('/navbar'),(req, res)=>{
-  res.sendFile(path.join(__dirname,'./public/navbar.html'))
-}
+//Rotas para os pedidos.
+app.use('/',require('./routes/mainRoutes'))
+
+app.use('/navbar',require('./routes/navbarRoutes'))
  
-app.get('/tipos',(req, res)=>{
-  connection.query('SELECT * FROM tipos',(err,result)=>{
-    if(err)
-    res.json('ocoreu um polbelme...')
-    else{
-      res.json(result)
-    }
+app.use('/tipos',require('./routes/tiposRoutes'))
 
-  })
-})
-
-app.post('/inserirAlunos',(req,res)=>{
-  console.log(res.body)
-  res.send('cheguei bem e de saude... ')
-})
+app.use('/inserirAlunos', require('./routes/inserirAlunosRoutes'))
 
 const port = 3000
 
